@@ -53,7 +53,7 @@ define Package/aspell/postinst
 
 echo -e "\n#####Available dictionaries at ftp://ftp.gnu.org/gnu/aspell/dict/0index.html \n\
 Sample English dictionary install for aspell: \n\
-     cd /Apps/opt/tmp \n\
+     cd /opt/tmp \n\
      opkg install make \n\
      wget ftp://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-7.1-0.tar.bz2 \n\
      tar xvjf aspell6-en-7.1-0.tar.bz2 \n\
@@ -71,23 +71,23 @@ CONFIGURE_ARGS += \
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/opt/include $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/Apps/opt/include/* $(1)/opt/include/
-	$(CP) $(PKG_INSTALL_DIR)/Apps/opt/lib/libpspell.{la,so*} $(1)/opt/lib/
-	$(CP) $(PKG_INSTALL_DIR)/Apps/opt/lib/libaspell.{la,so*} $(1)/opt/lib/
+	$(CP) $(PKG_INSTALL_DIR)/opt/include/* $(1)/opt/include/
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libpspell.{la,so*} $(1)/opt/lib/
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libaspell.{la,so*} $(1)/opt/lib/
 endef
 
 define Package/aspell/install
 	$(INSTALL_DIR) $(1)/opt/bin
-	$(CP) $(PKG_INSTALL_DIR)/Apps/opt/bin/* $(1)/opt/bin/
-	$(SED) 's,/bin/perl,/Apps/opt/bin/perl,g' $(1)/opt/bin/aspell-import
+	$(CP) $(PKG_INSTALL_DIR)/opt/bin/* $(1)/opt/bin/
+	$(SED) 's,/bin/perl,/opt/bin/perl,g' $(1)/opt/bin/aspell-import
 	$(INSTALL_DIR) $(1)/opt/etc
 	$(CP) ./files/aspell.conf $(1)/opt/etc/
 endef
 
 define Package/libaspell/install
 	$(INSTALL_DIR) $(1)/opt/lib/aspell-0.60
-	$(CP) $(PKG_INSTALL_DIR)/Apps/opt/lib/*.so* $(1)/opt/lib/
-	$(CP) $(PKG_INSTALL_DIR)/Apps/opt/lib/aspell-0.60/* $(1)/opt/lib/aspell-0.60
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/*.so* $(1)/opt/lib/
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/aspell-0.60/* $(1)/opt/lib/aspell-0.60
 endef
 
 $(eval $(call BuildPackage,aspell))
