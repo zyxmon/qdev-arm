@@ -9,7 +9,8 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mkvtoolnix
 PKG_VERSION:=4.2.0
-PKG_RELEASE:=1
+# If boost version changes it is better to change PKG_RELEASE
+PKG_RELEASE:=1a
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://bunkus.org/videotools/mkvtoolnix/sources
