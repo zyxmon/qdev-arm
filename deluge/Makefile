@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=deluge
 PKG_VERSION:=1.3.11
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://download.deluge-torrent.org/source/
@@ -20,7 +20,6 @@ PKG_MD5SUM:=5e36ba0a4bc3714e7056efda19d20772
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
 
-PKG_BUILD_DEPENDS:=python distribute/host
 
 define Package/deluge/Default
   SUBMENU:=BitTorrent
@@ -33,7 +32,7 @@ endef
 define Package/deluge
 $(call Package/deluge/Default)
   TITLE+= (console UI & daemon)
-  DEPENDS+=+python +distribute +rblibtorrent +python2-chardet +pyxdg +twisted  +pyopenssl
+  DEPENDS+=+python +rblibtorrent +python2-chardet +pyxdg +twisted  +pyopenssl +python-setuptools
 endef
 
 define Package/deluge-ui-gtk
