@@ -37,7 +37,7 @@ CMAKE_OPTIONS = -DCMAKE_BUILD_TYPE=Release
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/opt/include
-	$(CP) $(PKG_INSTALL_DIR)opt/include/libffmpegthumbnailer $(1)/opt/include/
+	$(CP) $(PKG_INSTALL_DIR)/opt/include/libffmpegthumbnailer $(1)/opt/include/
 	$(INSTALL_DIR) $(1)/opt/lib
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libffmpegthumbnailer*.so* $(1)/opt/lib/
 	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
